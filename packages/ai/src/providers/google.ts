@@ -451,6 +451,21 @@ function getGemini3ThinkingLevel(
 			return "HIGH";
 	}
 }
+	
+export function isGemma4Model(model: Model<"google-generative-ai">): boolean {
+    return /gemma-?4/i.test(model.id);
+}
+
+export function getGemma4ThinkingLevel(effort: ClampedThinkingLevel): GoogleThinkingLevel {
+    switch (effort) {
+        case "minimal":
+        case "low":
+            return "MINIMAL";
+        case "medium":
+        case "high":
+            return "HIGH";
+    }
+}
 
 function getGoogleBudget(
 	model: Model<"google-generative-ai">,
