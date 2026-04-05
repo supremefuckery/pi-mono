@@ -45,6 +45,7 @@ export function buildSystemPrompt(options: BuildSystemPromptOptions = {}): strin
 	const day = String(now.getDate()).padStart(2, "0");
 	const date = `${year}-${month}-${day}`;
 
+
 	const appendSection = appendSystemPrompt ? `\n\n${appendSystemPrompt}` : "";
 
 	const contextFiles = providedContextFiles ?? [];
