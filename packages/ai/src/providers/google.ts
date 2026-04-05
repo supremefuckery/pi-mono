@@ -302,6 +302,15 @@ export const streamSimpleGoogle: StreamFunction<"google-generative-ai", SimpleSt
 			},
 		} satisfies GoogleOptions);
 	}
+	if (isGemma4Model(googleModel)) {
+		return streamGoogle(model, context, {
+			...base,
+			thinking: {
+				enabled: true,
+				level: getGemma4ThinkingLevel(effort),
+			}
+		} satisfies GoogleOptions);
+	}
 
 	return streamGoogle(model, context, {
 		...base,
