@@ -302,13 +302,14 @@ export const streamSimpleGoogle: StreamFunction<"google-generative-ai", SimpleSt
 			},
 		} satisfies GoogleOptions);
 	}
+
 	if (isGemma4Model(googleModel)) {
 		return streamGoogle(model, context, {
 			...base,
 			thinking: {
 				enabled: true,
 				level: getGemma4ThinkingLevel(effort),
-			}
+			},
 		} satisfies GoogleOptions);
 	}
 
@@ -422,6 +423,8 @@ function getDisabledThinkingConfig(model: Model<"google-generative-ai">): Thinki
 		return { thinkingLevel: "MINIMAL" as any };
 	}
 	if (isGemma4Model(model)) {
+		// Gemma 4 only supports MINIMAL and HIGH thinking levels.
+		// To disable thinking, we use the lowest supported level: MINIMAL
 		return { thinkingLevel: "MINIMAL" as any };
 	}
 
@@ -454,20 +457,20 @@ function getGemini3ThinkingLevel(
 			return "HIGH";
 	}
 }
-	
-export function isGemma4Model(model: Model<"google-generative-ai">): boolean {
-    return /gemma-?4/i.test(model.id);
+
+function isGemma4Model(model: Model<"google-generative-ai">): boolean {
+	return /gemma-?4/i.test(model.id);
 }
 
-export function getGemma4ThinkingLevel(effort: ClampedThinkingLevel): GoogleThinkingLevel {
-    switch (effort) {
-        case "minimal":
-        case "low":
-            return "MINIMAL";
-        case "medium":
-        case "high":
-            return "HIGH";
-    }
+function getGemma4ThinkingLevel(effort: ClampedThinkingLevel): GoogleThinkingLevel {
+	switch (effort) {
+		case "minimal":
+		case "low":
+			return "MINIMAL";
+		case "medium":
+		case "high":
+			return "HIGH";
+	}
 }
 
 function getGoogleBudget(
