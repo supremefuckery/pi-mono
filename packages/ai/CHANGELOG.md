@@ -4,6 +4,7 @@
 
 ### Fixed
 
+- Bumped default Antigravity User-Agent version to `1.21.9` to fix "This version of Antigravity is no longer supported" errors from Google's API ([#2815](https://github.com/badlogic/pi-mono/issues/2815))
 - Fixed OpenAI-compatible completions streaming usage to preserve `prompt_tokens_details.cache_write_tokens` and normalize OpenRouter `cached_tokens` to previous-request cache hits only, preventing cache read/write double counting in `usage` and cost calculation ([#2802](https://github.com/badlogic/pi-mono/issues/2802))
 
 ## [0.65.0] - 2026-04-03
