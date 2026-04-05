@@ -339,3 +339,30 @@ Vercel AI Gateway example:
   }
 }
 ```
+
+### Gemma 4 via Google Generative AI
+
+Gemma 4 models (`gemma-4-31b-it`, `gemma-4-26b-a4b-it`) support extended thinking via the Google Generative AI API. They use `thinkingLevel` (not `thinkingBudget`) and only support `MINIMAL` and `HIGH` levels.
+
+```json
+{
+  "providers": {
+    "google-generative-ai": {
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "apiKey": "GOOGLE_API_KEY",
+      "api": "google-generative-ai",
+      "models": [
+        {
+          "id": "gemma-4-31b-it",
+          "reasoning": true,
+          "input": ["text", "image"]
+        },
+        {
+          "id": "gemma-4-26b-a4b-it",
+          "reasoning": true,
+          "input": ["text", "image"]
+        }
+      ]
+    }
+  }
+}
