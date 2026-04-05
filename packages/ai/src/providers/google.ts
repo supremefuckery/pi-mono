@@ -421,6 +421,9 @@ function getDisabledThinkingConfig(model: Model<"google-generative-ai">): Thinki
 	if (isGemini3FlashModel(model)) {
 		return { thinkingLevel: "MINIMAL" as any };
 	}
+	if (isGemma4Model(model)) {
+		return { thinkingLevel: "MINIMAL" as any };
+	}
 
 	// Gemini 2.x supports disabling via thinkingBudget = 0.
 	return { thinkingBudget: 0 };
