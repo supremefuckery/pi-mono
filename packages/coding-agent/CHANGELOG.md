@@ -4,6 +4,7 @@
 
 ### Fixed
 
+- Bumped default Antigravity User-Agent version to `1.21.9` to fix "This version of Antigravity is no longer supported" errors from Google's API ([#2815](https://github.com/badlogic/pi-mono/issues/2815))
 - System prompt date now uses local timezone instead of UTC, fixing date hallucination for users far from UTC ([#2814](https://github.com/badlogic/pi-mono/issues/2814))
 - RpcClient now forwards subprocess stderr to parent process in real-time ([#2805](https://github.com/badlogic/pi-mono/issues/2805))
 - Theme file watcher now handles async `fs.watch` error events instead of crashing the process ([#2791](https://github.com/badlogic/pi-mono/issues/2791))
