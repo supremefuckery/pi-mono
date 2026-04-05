@@ -10,6 +10,7 @@
 
 ### Added
 
+- Added Gemma 4 thinking support via thinkingLevel for google-generative-ai API. Gemma 4 models (gemma-4-31b-it, gemma-4-26b-a4b-it) now route through the thinkingLevel path instead of thinkingBudget, with pi thinking levels mapped to Gemma 4's supported MINIMAL and HIGH levels
 - Added tool streaming support for newer Z.ai models ([#2732](https://github.com/badlogic/pi-mono/pull/2732) by [@kaofelix](https://github.com/kaofelix))
 
 ### Fixed
